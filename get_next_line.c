@@ -6,7 +6,7 @@
 /*   By: iung <iung@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 09:27:21 by iung              #+#    #+#             */
-/*   Updated: 2022/12/22 17:44:35 by iung             ###   ########.fr       */
+/*   Updated: 2022/12/23 16:34:27 by iung             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ char	*ft_buffjoin(const char *s1, const char *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 | !s2)
+		return (NULL);
 	size = ft_strlen(s1) + ft_strlen(s2);
 	str = malloc(sizeof(char) * (size + 1));
-	if (!s1 | !s2 | !str)
+	if (!str)
 		return (NULL);
 	while (s1[i] != '\0')
 		str[j++] = s1[i++];
@@ -57,6 +59,8 @@ char	*ft_readline(char *stock)
 	while (stock[len] && stock[len] != '\n')
 		len++;
 	str = malloc(sizeof(char) * len + 2);
+	if (!str)
+		return (NULL);
 	len = 0;
 	while (stock[len] && stock[len] != '\n')
 	{
@@ -85,6 +89,8 @@ char	*ft_buffstock(char *stock)
 		return (NULL);
 	}
 	str = malloc(sizeof(char) * (ft_strlen(stock) - i + 1));
+	if (!str)
+		return (NULL);
 	i++;
 	while (stock[i])
 		str[n++] = stock[i++];
@@ -102,6 +108,8 @@ char	*ft_readnstore(char *stock, int fd)
 	if (!stock)
 		stock = ft_calloc(1, 1);
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
+		return (NULL);
 	while (bytes > 0)
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);

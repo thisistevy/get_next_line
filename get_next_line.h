@@ -6,7 +6,7 @@
 /*   By: iung <iung@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 09:27:29 by iung              #+#    #+#             */
-/*   Updated: 2022/12/22 11:37:26 by iung             ###   ########.fr       */
+/*   Updated: 2022/12/23 14:30:19 by iung             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 30
+#  define BUFFER_SIZE 42
 # endif
 
 # include <fcntl.h>
